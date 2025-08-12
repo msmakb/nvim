@@ -35,11 +35,11 @@ map("n", "<leader>gf", vim.lsp.buf.format, { desc = "LSP: Format document" })
 map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "LSP: Rename symbol" })
 
 -- Code Action
--- map(
---   { "n", "x" },
---   "<leader>ca",
---   function()
---     require("tiny-code-action").code_action()
---   end,
---   { noremap = true, silent = true, desc = "Code Action" }
--- )
+map(
+  { "n", "x" },
+  "<leader>ca",
+  function()
+    require("tiny-code-action").code_action()
+  end,
+  { noremap = true, silent = true, desc = "Code Action" }
+)

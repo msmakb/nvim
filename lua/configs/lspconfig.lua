@@ -1,24 +1,55 @@
-local config = require("nvchad.configs.lspconfig")
-
-local on_attach = config.on_attach
+local config = require "nvchad.configs.lspconfig"
 local capabilities = config.capabilities
+local on_attach = config.on_attach
 
-local lspconfig = require("lspconfig")
-
-lspconfig.ruby_lsp.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-  cmd = { "ruby-lsp" },
-  filetypes = { "ruby" },
-})
-
-vim.diagnostic.config({
+vim.diagnostic.config {
   signs = true,
   underline = true,
   severity_sort = true,
   update_in_insert = false,
-  virtual_text = { spacing = 2, prefix = "•" },
-})
+  virtual_lines = false,
+  virtual_text = false, -- { spacing = 2, prefix = "•" },
+}
 
-local servers = { "html", "cssls", "ruby_lsp" }
-vim.lsp.enable(servers)
+local servers = {
+  html = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = { "html-lsp" },
+    filetypes = { "html", "htmldjango", "eruby" },
+  },
+
+  cssls = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = { "css-lsp" },
+    filetypes = { "css", "scss", "less" },
+  },
+
+  ruby_lsp = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = { "ruby-lsp" },
+    filetypes = { "ruby" },
+  },
+
+  pyright = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "python" },
+    settings = {
+      python = {
+        analysis = {
+          typeCheckingMode = "basic",
+          autoSearchPaths = true,
+          useLibraryCodeForTypes = true,
+        },
+      },
+    },
+  },
+}
+
+for name, opts in pairs(servers) do
+  vim.lsp.enable(name)
+  vim.lsp.config(name, opts)
+end

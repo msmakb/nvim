@@ -1,8 +1,10 @@
 return {
   {
     "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
-    opts = require "configs.conform",
+    event = "BufWritePre",
+    config = function()
+      require("configs.conform").setup()
+    end,
   },
 
   -- test new blink
@@ -11,19 +13,24 @@ return {
   {
     "nvimtools/none-ls.nvim",
     -- "jose-elias-alvarez/null-ls.nvim",
-    ft = { "ruby" },
-    opts = function ()
+    ft = { "ruby", "python" },
+    opts = function()
       return require "configs.null-ls"
-    end
+    end,
   },
 
   {
-  	"nvim-treesitter/nvim-treesitter",
-  	opts = {
-  		ensure_installed = {
-  			"vim", "lua", "vimdoc",
-  	    "html", "css", "ruby"
-  		},
-  	},
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "vim",
+        "lua",
+        "vimdoc",
+        "html",
+        "css",
+        "ruby",
+        "python",
+      },
+    },
   },
 }

@@ -1,9 +1,6 @@
 return {
   {
     "williamboman/mason.nvim",
-    lazy = false,
-    opts = {
-    },
     config = function()
       require("mason").setup()
     end,
@@ -15,16 +12,37 @@ return {
     opts = {
       auto_install = true,
       ensure_installed = {
+        "pyright",
+        "ruff",
         "rubocop",
       },
     },
   },
 
   {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    lazy = false,
+    opts = {
+      auto_install = true,
+      ensure_installed = {
+        "black",
+        "mypy",
+      },
+    },
+  },
+
+  {
+    "benomahony/uv.nvim",
+    config = function()
+      require("uv").setup()
+    end,
+  },
+
+  {
     "neovim/nvim-lspconfig",
     lazy = false,
     config = function()
-      require("configs.lspconfig")
+      require "configs.lspconfig"
       -- local capabilities = require('cmp_nvim_lsp').default_capabilities()
       --
       -- local lspconfig = require("lspconfig")
