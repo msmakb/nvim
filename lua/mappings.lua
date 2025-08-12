@@ -31,5 +31,15 @@ map("n", "K", vim.lsp.buf.hover, { desc = "LSP: Show hover information" })
 map("n", "<leader>gd", vim.lsp.buf.definition, { desc = "LSP: Go to definition" })
 map("n", "<leader>gr", vim.lsp.buf.references, { desc = "LSP: Show references" })
 map("n", "<leader>gf", vim.lsp.buf.format, { desc = "LSP: Format document" })
-map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: Code action" })
+-- map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "LSP: Code action" })
 map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "LSP: Rename symbol" })
+
+-- Code Action
+-- map(
+--   { "n", "x" },
+--   "<leader>ca",
+--   function()
+--     require("tiny-code-action").code_action()
+--   end,
+--   { noremap = true, silent = true, desc = "Code Action" }
+-- )

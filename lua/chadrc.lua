@@ -9,6 +9,7 @@ local M = {}
 vim.opt.autoread = true
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.termbidi = true
 
 -- Create an autocommand group for cleaner management
 local autocmd_group = vim.api.nvim_create_augroup("NvChadAutoReload", { clear = true })

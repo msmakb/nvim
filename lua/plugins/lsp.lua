@@ -2,6 +2,8 @@ return {
   {
     "williamboman/mason.nvim",
     lazy = false,
+    opts = {
+    },
     config = function()
       require("mason").setup()
     end,
@@ -12,6 +14,9 @@ return {
     lazy = false,
     opts = {
       auto_install = true,
+      ensure_installed = {
+        "rubocop",
+      },
     },
   },
 
