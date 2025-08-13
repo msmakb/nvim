@@ -11,13 +11,12 @@ return {
     },
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load()
-      require("luasnip.loaders.from_vscode").lazy_load({ paths = vim.fn.stdpath("config") .. "/lua/" })
-      require("luasnip.loaders.from_snipmate").lazy_load({ paths = vim.fn.stdpath("config") .. "/lua/snippets/" })
+      require("luasnip.loaders.from_vscode").lazy_load { paths = vim.fn.stdpath "config" .. "/lua/" }
+      require("luasnip.loaders.from_snipmate").lazy_load { paths = vim.fn.stdpath "config" .. "/lua/snippets/" }
       -- require("luasnip").filetype_extend("ruby", { vim.fn.stdpath("config") .. "/lua/snippets/ruby.snippets" })
-      require("luasnip").filetype_extend("ruby", { vim.fn.stdpath("config") .. "/lua/snippets/rails.snippets" })
-      require("luasnip").filetype_extend("rails", { vim.fn.stdpath("config") .. "/lua/snippets/rails.snippets" })
-      require("luasnip").filetype_extend("eruby", { vim.fn.stdpath("config") .. "/lua/snippets/rails.snippets" })
-
+      require("luasnip").filetype_extend("ruby", { vim.fn.stdpath "config" .. "/lua/snippets/rails.snippets" })
+      require("luasnip").filetype_extend("rails", { vim.fn.stdpath "config" .. "/lua/snippets/rails.snippets" })
+      require("luasnip").filetype_extend("eruby", { vim.fn.stdpath "config" .. "/lua/snippets/rails.snippets" })
     end,
     opts = {
       history = true,

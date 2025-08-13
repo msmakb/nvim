@@ -1,7 +1,7 @@
 return {
   "rmagatti/auto-session",
   lazy = false,
-  config = function ()
+  config = function()
     require("auto-session").setup()
-  end
+  end,
 }

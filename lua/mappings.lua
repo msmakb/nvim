@@ -6,9 +6,14 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 
 -- Custom mapping
-vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true, desc = "Exit terminal insert mode" })
-vim.api.nvim_set_keymap('i', '<C-z>', '<C-O>u', { noremap = true, silent = true, desc = "Undo in Insert Mode" })
-vim.api.nvim_set_keymap('i', '<C-r>', '<C-O><C-r>', { noremap = true, silent = true, desc = "Redo in Insert Mode" })
+vim.api.nvim_set_keymap(
+  "t",
+  "<Esc>",
+  "<C-\\><C-n>",
+  { noremap = true, silent = true, desc = "Exit terminal insert mode" }
+)
+vim.api.nvim_set_keymap("i", "<C-z>", "<C-O>u", { noremap = true, silent = true, desc = "Undo in Insert Mode" })
+vim.api.nvim_set_keymap("i", "<C-r>", "<C-O><C-r>", { noremap = true, silent = true, desc = "Redo in Insert Mode" })
 
 map("n", "<C-z>", "<Nop>", { desc = "Do nothing for Ctrl+Z" })
 
@@ -35,11 +40,6 @@ map("n", "<leader>gf", vim.lsp.buf.format, { desc = "LSP: Format document" })
 map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "LSP: Rename symbol" })
 
 -- Code Action
-map(
-  { "n", "x" },
-  "<leader>ca",
-  function()
-    require("tiny-code-action").code_action()
-  end,
-  { noremap = true, silent = true, desc = "Code Action" }
-)
+map({ "n", "x" }, "<leader>ca", function()
+  require("tiny-code-action").code_action()
+end, { noremap = true, silent = true, desc = "Code Action" })

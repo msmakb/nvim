@@ -1,6 +1,6 @@
--- This file needs to have same structure as nvconfig.lua 
+-- This file needs to have same structure as nvconfig.lua
 -- https://github.com/NvChad/ui/blob/v3.0/lua/nvconfig.lua
--- Please read that file to know all available options :( 
+-- Please read that file to know all available options :(
 
 ---@type ChadrcConfig
 local M = {}
@@ -23,10 +23,10 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "FocusGained" }, {
     -- Only run checktime if the buffer is not modified in Neovim
     -- and the file actually exists on disk.
     local bufnr = vim.api.nvim_get_current_buf()
-    if not vim.api.nvim_get_option_value('modified', { buf = bufnr }) then
+    if not vim.api.nvim_get_option_value("modified", { buf = bufnr }) then
       local filename = vim.api.nvim_buf_get_name(bufnr)
       if filename ~= "" and vim.fn.filereadable(filename) == 1 then
-        vim.cmd("silent! checktime")
+        vim.cmd "silent! checktime"
       end
     end
   end,
@@ -34,12 +34,12 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "FocusGained" }, {
 })
 
 M.base46 = {
-	theme = "radium",
+  theme = "radium",
 
-	-- hl_override = {
-	-- 	Comment = { italic = true },
-	-- 	["@comment"] = { italic = true },
-	-- },
+  -- hl_override = {
+  -- 	Comment = { italic = true },
+  -- 	["@comment"] = { italic = true },
+  -- },
 }
 
 -- M.nvdash = { load_on_startup = true }

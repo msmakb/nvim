@@ -5,12 +5,14 @@ local options = {
     -- css = { "prettier" },
     -- html = { "prettier" },
   },
-
-  format_on_save = {
-    timeout_ms = 2000,
-    lsp_fallback = true,
-  },
 }
+
+options.format_on_save = function(bufnr)
+  local ft = vim.bo[bufnr].filetype
+  if options.formatters_by_ft[ft] ~= nil then
+    return { timeout_ms = 2000, lsp_fallback = true }
+  end
+end
 
 options.setup = function()
   require("conform").setup(options)
