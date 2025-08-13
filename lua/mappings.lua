@@ -14,6 +14,7 @@ vim.api.nvim_set_keymap(
 )
 vim.api.nvim_set_keymap("i", "<C-z>", "<C-O>u", { noremap = true, silent = true, desc = "Undo in Insert Mode" })
 vim.api.nvim_set_keymap("i", "<C-r>", "<C-O><C-r>", { noremap = true, silent = true, desc = "Redo in Insert Mode" })
+vim.api.nvim_set_keymap("n", "<C-a>", "ggVG", { noremap = true, silent = true, desc = "Select all" })
 
 map("n", "<C-z>", "<Nop>", { desc = "Do nothing for Ctrl+Z" })
 
@@ -25,6 +26,8 @@ map("n", "<A-Up>", ":m .-2<CR>==") -- move line down(n)
 map("n", "<A-Down>", ":m .+1<CR>==") -- move line up(n)
 map("v", "<A-Up>", ":m '>+1<CR>gv=gv") -- move line up(v)
 map("v", "<A-Down>", ":m '<-2<CR>gv=gv") -- move line down(v)
+map("n", "<C-Down>", "<C-d>", { noremap = true, silent = true })
+map("n", "<C-Up>", "<C-u>", { noremap = true, silent = true })
 
 -- Hotkey to manually trigger a Copilot suggestion
 map("i", "<C-\\>", function()
