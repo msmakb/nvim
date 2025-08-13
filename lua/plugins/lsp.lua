@@ -15,6 +15,7 @@ return {
         "pyright",
         "ruff",
         "rubocop",
+        "solargraph",
       },
     },
   },
@@ -43,12 +44,6 @@ return {
     lazy = false,
     config = function()
       require "configs.lspconfig"
-      -- local capabilities = require('cmp_nvim_lsp').default_capabilities()
-      --
-      -- local lspconfig = require("lspconfig")
-      -- lspconfig.ruby_lsp.setup({
-      --   capabilities = capabilities
-      -- })
     end,
   },
 }
