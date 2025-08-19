@@ -13,7 +13,7 @@ return {
   {
     "nvimtools/none-ls.nvim",
     -- "jose-elias-alvarez/null-ls.nvim",
-    ft = { "ruby", "python" },
+    ft = { "ruby" },
     opts = function()
       return require "configs.null-ls"
     end,

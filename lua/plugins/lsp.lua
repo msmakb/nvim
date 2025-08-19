@@ -12,31 +12,12 @@ return {
     opts = {
       auto_install = true,
       ensure_installed = {
-        "pyright",
+        "ty",
         "ruff",
         "rubocop",
         "solargraph",
       },
     },
-  },
-
-  {
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-    lazy = false,
-    opts = {
-      auto_install = true,
-      ensure_installed = {
-        "black",
-        "mypy",
-      },
-    },
-  },
-
-  {
-    "benomahony/uv.nvim",
-    config = function()
-      require("uv").setup()
-    end,
   },
 
   {

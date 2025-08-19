@@ -33,7 +33,7 @@ local servers = {
     filetypes = { "ruby" },
   },
 
-  pyright = {
+  ty = {
     on_attach = on_attach,
     capabilities = capabilities,
     filetypes = { "python" },
@@ -47,6 +47,8 @@ local servers = {
       },
     },
   },
+
+  ruff = {},
 }
 
 for name, opts in pairs(servers) do
