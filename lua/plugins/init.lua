@@ -11,15 +11,6 @@ return {
   { import = "nvchad.blink.lazyspec" },
 
   {
-    "nvimtools/none-ls.nvim",
-    -- "jose-elias-alvarez/null-ls.nvim",
-    ft = { "ruby" },
-    opts = function()
-      return require "configs.null-ls"
-    end,
-  },
-
-  {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {
