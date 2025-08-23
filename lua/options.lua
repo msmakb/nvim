@@ -1,6 +1,14 @@
 require "nvchad.options"
 
--- add yours here!
+local opt = vim.opt
+local o = vim.o
 
--- local o = vim.o
--- o.cursorlineopt ='both' -- to enable cursorline!
+opt.spell = true
+opt.spelllang = "en_us"
+opt.cursorlineopt = "both"
+
+-- Enable autoread option
+opt.autoread = true
+opt.number = true
+opt.relativenumber = true
+opt.termbidi = true

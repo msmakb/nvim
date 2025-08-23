@@ -12,10 +12,32 @@ return {
     opts = {
       auto_install = true,
       ensure_installed = {
-        "ty",
+        "pyright",
         "ruff",
         "rubocop",
         "solargraph",
+      },
+    },
+  },
+
+  {
+    "nvimtools/none-ls.nvim",
+    ft = { "python" },
+    config = function()
+      require "configs.null-ls"
+    end,
+  },
+
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    lazy = false,
+    opts = {
+      auto_install = true,
+      ensure_installed = {
+        "ty",
+        "mypy",
+        "prettierd",
+        "prettier",
       },
     },
   },

@@ -26,6 +26,19 @@ local servers = {
     filetypes = { "css", "scss", "less" },
   },
 
+  ts_ls = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = {
+      "typescript",
+      "typescriptreact",
+      "typescript.tsx",
+      "javascript",
+      "javascriptreact",
+      "javascript.jsx",
+    },
+  },
+
   ruby_lsp = {
     on_attach = on_attach,
     capabilities = capabilities,
@@ -33,7 +46,7 @@ local servers = {
     filetypes = { "ruby" },
   },
 
-  ty = {
+  pyright = {
     on_attach = on_attach,
     capabilities = capabilities,
     filetypes = { "python" },
@@ -48,7 +61,15 @@ local servers = {
     },
   },
 
-  ruff = {},
+  ty = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "python" },
+  },
+
+  ruff = {
+    filetypes = { "python" },
+  },
 }
 
 for name, opts in pairs(servers) do
