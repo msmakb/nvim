@@ -72,7 +72,6 @@ map("n", "<leader>cp", ":Copilot fix<CR>", { silent = true })
 map({ "n", "x" }, "<leader>ca", function()
   require("tiny-code-action").code_action()
 end, { noremap = true, silent = true, desc = "Code Action" })
-<<<<<<< Updated upstream
 map("n", "<leader>cp", ":Copilot fix<CR>", { silent = true })
 
 -- Tmux mappings
@@ -80,5 +79,3 @@ map("n", "<C-h>", ":TmuxNavigateLeft<CR>", { silent = true })
 map("n", "<C-j>", ":TmuxNavigateDown<CR>", { silent = true })
 map("n", "<C-k>", ":TmuxNavigateUp<CR>", { silent = true })
 map("n", "<C-l>", ":TmuxNavigateRight<CR>", { silent = true })
-=======
->>>>>>> Stashed changes
