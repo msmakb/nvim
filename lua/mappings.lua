@@ -45,7 +45,7 @@ map("n", "<C-z>", "<Nop>", { desc = "Do nothing for Ctrl+Z" })
 
 map("n", "<C-b>", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
 map("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<CR>", { desc = "LSP: Rename symbol" })
-map("n", "<C-p>", "<cmd>Telescope find_files<CR>", { desc = "Find files" })
+map("n", "<C-p>", "<cmd>Telescope find_files no_ignore=true<CR>", { desc = "Find files" })
 
 map("n", "<A-Up>", ":m .-2<CR>==") -- move line down(n)
 map("n", "<A-Down>", ":m .+1<CR>==") -- move line up(n)
