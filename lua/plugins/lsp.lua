@@ -38,6 +38,9 @@ return {
         "mypy",
         "prettierd",
         "prettier",
+        "rustfmt",
+        "taplo",
+        "codelldb",
       },
     },
   },
@@ -47,6 +50,16 @@ return {
     lazy = false,
     config = function()
       require "configs.lspconfig"
+    end,
+  },
+
+  {
+    "mrcjkb/rustaceanvim",
+    version = "^6",
+    lazy = false,
+    ft = "rust",
+    config = function()
+      require "configs.rustacean"
     end,
   },
 }

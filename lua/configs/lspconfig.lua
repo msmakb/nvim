@@ -1,4 +1,5 @@
 local config = require "nvchad.configs.lspconfig"
+local util = require "lspconfig.util"
 local capabilities = config.capabilities
 local on_attach = config.on_attach
 
@@ -69,6 +70,20 @@ local servers = {
 
   ruff = {
     filetypes = { "python" },
+  },
+
+  rust_analyzer = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "rust" },
+    root_dir = util.root_pattern "Cargo.toml",
+    settings = {
+      ["rust-analyzer"] = {
+        cargo = {
+          allFeatures = true,
+        },
+      },
+    },
   },
 }
 

@@ -57,6 +57,7 @@ return {
           ["<CR>"] = cmp.mapping.confirm { select = true },
         },
         sources = cmp.config.sources({
+          { name = "crates" },
           { name = "nvim_lsp" },
           {
             name = "luasnip",
@@ -72,6 +73,17 @@ return {
     end,
     opts = function()
       return require "nvchad.configs.cmp"
+    end,
+  },
+
+  {
+    "saecki/crates.nvim",
+    ft = { "rust", "toml" },
+    dependencies = "hrsh7th/nvim-cmp",
+    config = function(_, opts)
+      local crates = require "crates"
+      crates.setup(opts)
+      crates.show()
     end,
   },
 }
