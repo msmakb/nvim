@@ -58,6 +58,13 @@ local servers = {
           autoSearchPaths = true,
           useLibraryCodeForTypes = true,
         },
+        pythonPath = (function()
+          local cwd = vim.fn.getcwd()
+          if vim.fn.isdirectory(cwd .. "/.venv") == 1 then
+            return cwd .. "/.venv/bin/python"
+          end
+          return vim.fn.exepath "python3"
+        end)(),
       },
     },
   },
