@@ -4,6 +4,7 @@ local options = {
     python = { "ruff_format" },
     rust = { "rustfmt" },
     toml = { "taplo" },
+    json = { "prettier" },
     css = { "prettier" },
     html = { "prettier" },
     javascript = {
