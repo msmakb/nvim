@@ -12,18 +12,26 @@ vim.diagnostic.config {
   virtual_text = false, -- { spacing = 2, prefix = "•" },
 }
 
+-- Force-disable Stylua as LSP (use Stylua only via conform formatter)
+vim.lsp.config("stylua", {
+  autostart = false,
+  cmd = { "stylua" },
+  filetypes = {},
+})
+pcall(vim.lsp.enable, "stylua", false)
+
 local servers = {
   html = {
     on_attach = on_attach,
     capabilities = capabilities,
-    cmd = { "html-lsp" },
+    cmd = { "vscode-html-language-server", "--stdio" },
     filetypes = { "html", "htmldjango", "eruby" },
   },
 
   cssls = {
     on_attach = on_attach,
     capabilities = capabilities,
-    cmd = { "css-lsp" },
+    cmd = { "vscode-css-language-server", "--stdio" },
     filetypes = { "css", "scss", "less" },
   },
 
@@ -69,13 +77,15 @@ local servers = {
     },
   },
 
-  ty = {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    filetypes = { "python" },
-  },
+  -- ty = {
+  --   on_attach = on_attach,
+  --   capabilities = capabilities,
+  --   filetypes = { "python" },
+  -- },
 
   ruff = {
+    on_attach = on_attach,
+    capabilities = capabilities,
     filetypes = { "python" },
   },
 
@@ -92,9 +102,17 @@ local servers = {
       },
     },
   },
+
+  clangd = {
+    on_attach = function(client, buffer)
+      client.server_capabilities.signatureHelpProvider = false
+      on_attach(client, buffer)
+    end,
+    capabilities = capabilities,
+  },
 }
 
 for name, opts in pairs(servers) do
-  vim.lsp.enable(name)
   vim.lsp.config(name, opts)
+  vim.lsp.enable(name)
 end

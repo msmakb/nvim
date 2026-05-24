@@ -12,13 +12,16 @@ local options = {
       "prettier",
       stop_after_first = true,
     },
+    cpp = { "clang-format" },
+    c = { "clang-format" },
+    cs = { "csharpier" },
   },
 }
 
 options.format_on_save = function(bufnr)
   local ft = vim.bo[bufnr].filetype
   if options.formatters_by_ft[ft] ~= nil then
-    return { timeout_ms = 2000, lsp_fallback = true }
+    return { timeout_ms = 2000, lsp_fallback = false }
   end
 end
 

@@ -34,13 +34,15 @@ return {
     opts = {
       auto_install = true,
       ensure_installed = {
-        "ty",
+        -- "ty",
         "mypy",
         "prettierd",
         "prettier",
         "rustfmt",
         "taplo",
         "codelldb",
+        "clang-format",
+        "csharpier",
       },
     },
   },
