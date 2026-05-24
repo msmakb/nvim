@@ -1,3 +1,5 @@
+require "configs.read_env"
+
 ---@type ChadrcConfig
 local M = {}
 

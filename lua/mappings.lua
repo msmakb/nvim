@@ -54,11 +54,6 @@ map("v", "<A-Down>", ":m '<-2<CR>gv=gv") -- move line down(v)
 map("n", "<C-Down>", "<C-d>", { noremap = true, silent = true })
 map("n", "<C-Up>", "<C-u>", { noremap = true, silent = true })
 
--- Hotkey to manually trigger a Copilot suggestion
-map("i", "<C-\\>", function()
-  require("copilot.suggestion").next()
-end, { desc = "Copilot: Next suggestion" })
-
 -- LSP mappings
 map("n", "K", vim.lsp.buf.hover, { desc = "LSP: Show hover information" })
 map("n", "<leader>gd", vim.lsp.buf.definition, { desc = "LSP: Go to definition" })
