@@ -26,8 +26,8 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "FocusGained" }, {
 M.base46 = {
   theme = "tokyodark",
   hl_override = {
-    Comment = { italic = true },
-    ["@comment"] = { italic = true },
+    Comment = { italic = true, fg = "#506BA0" },
+    ["@comment"] = { italic = true, fg = "#506BA0" },
   },
 }
 

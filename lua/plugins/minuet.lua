@@ -19,7 +19,7 @@ return {
         },
 
         virtualtext = {
-          auto_trigger_ft = { "*" },
+          auto_trigger_ft = {},
           show_on_completion_menu = true,
           keymap = {
             accept = "<A-l>",
@@ -34,6 +34,7 @@ return {
         provider_options = {
           gemini = {
             model = "gemini-3.5-flash",
+            -- model = "gemini-2.5-flash-lite",
             api_key = function()
               if type(_G.read_env) ~= "function" then
                 pcall(require, "configs.read_env")
@@ -54,6 +55,12 @@ return {
               },
             },
           },
+        },
+        -- Allow auto-triggering only in normal editing windows.
+        enable_predicates = {
+          function()
+            return vim.bo.buftype == "" and vim.api.nvim_win_get_config(0).relative == ""
+          end,
         },
       }
     end,

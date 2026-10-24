@@ -42,6 +42,7 @@ vim.api.nvim_set_keymap(
 )
 
 map("n", "<C-z>", "<Nop>", { desc = "Do nothing for Ctrl+Z" })
+map("n", "<leader>z", "<cmd>tab split<CR>", { desc = "Maximize current split" })
 
 map("n", "<C-b>", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
 map("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<CR>", { desc = "LSP: Rename symbol" })
@@ -92,3 +93,7 @@ map("n", "<Leader>dr", "<cmd>lua require'dap'.run_last()<CR>", { desc = "Debugge
 
 -- rustaceanvim
 map("n", "<Leader>dt", "<cmd>lua vim.cmd('RustLsp testables')<CR>", { desc = "Debugger testables" })
+
+map("i", "<A-\\>", function()
+  require("minuet.virtualtext").action.next()
+end, { desc = "Minuet trigger suggestion" })
